@@ -30,5 +30,8 @@ public class ContainsDuplicate {
         int[] nums = { 1, 2, 3, 1 };
         int k = 3;
         System.out.println(cd.containsNearbyDuplicate(nums, k)); // Saída: true
+
+        String s = "abcabcbb";
+
     }
 }

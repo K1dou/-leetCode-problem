@@ -1,18 +1,13 @@
-package com.kidou;
+package com.kidou.arrays.slidingWindow;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+public class MaxSumSubArray {
 
-/**
- * Hello world!
- *
- */
-public class App {
-
+    /// Dado um array de inteiros e um inteiro k, retorna a soma máxima de qualquer
+    /// subarray de tamanho k.
     static int maxSum(int arr[], int n, int k) {
-        if (n <= k) {
-            System.out.println("Invalid");
+
+        if (n < k) {
+            System.out.println("Entrada inválida");
             return -1;
         }
 
@@ -22,17 +17,18 @@ public class App {
 
         int window_sum = max_sum;
         for (int i = k; i < n; i++) {
-            window_sum += arr[i] - arr[i - k];
+            window_sum += arr[i] - arr[i - k]; // Remove o primeiro e adiciona o próximo
             max_sum = Math.max(max_sum, window_sum);
         }
+
         return max_sum;
     }
 
-    // Driver code
     public static void main(String[] args) {
         int arr[] = { 1, 4, 2, 10, 2, 3, 1, 0, 20 };
         int k = 4;
         int n = arr.length;
         System.out.println(maxSum(arr, n, k));
     }
+
 }
